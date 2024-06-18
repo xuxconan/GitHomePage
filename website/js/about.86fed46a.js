@@ -1,0 +1,1 @@
+"use strict";(self["webpackChunkgit_home_page"]=self["webpackChunkgit_home_page"]||[]).push([[594],{5609:function(e,n,t){t.r(n),t.d(n,{default:function(){return f}});var u=t(6768);const a={class:"about"},r=(0,u.Lk)("h1",null,"This is an about page",-1),s=[r];function c(e,n){return(0,u.uX)(),(0,u.CE)("div",a,s)}var i=t(1241);const o={},h=(0,i.A)(o,[["render",c]]);var f=h}}]);
