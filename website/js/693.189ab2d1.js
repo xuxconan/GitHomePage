@@ -1,0 +1,1 @@
+"use strict";(self["webpackChunkgit_home_page"]=self["webpackChunkgit_home_page"]||[]).push([[693],{7693:function(e,p,a){a.r(p);var h=a(6768);p["default"]=(0,h.pM)((e=>()=>(0,h.h)("div","Home")),{props:[]})}}]);
