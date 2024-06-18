@@ -1,10 +1,14 @@
+# https://docs.github.com/zh/enterprise-server@3.10/actions/learn-github-actions/understanding-github-actions?learn=getting_started
 # Simple workflow for deploying static content to GitHub Pages
 name: Deploy static content to Pages
 
 on:
-  # Runs on pushes targeting the default branch
+  # Runs on pushes targeting the default branch and tag includes deploy
+  # 当push事件在master分支、并且是deploy开头的tag时才会部署
   push:
     branches: ["master"]
+    tags:
+      - 'deploy**'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
