@@ -3,6 +3,7 @@ import { fileURLToPath, URL } from "node:url";
 
 import { defineConfig, loadEnv } from "vite";
 import vue from "@vitejs/plugin-vue";
+import legacy from "@vitejs/plugin-legacy";
 import { VitePWA } from "vite-plugin-pwa";
 
 // Vite中文文档 https://cn.vitejs.dev/config/
@@ -16,6 +17,11 @@ export default defineConfig(({ mode }) => {
     base: env.VITE_BASE ?? "/",
     plugins: [
       vue(),
+      // 旧浏览器兼容：生成ES5降级bundle（nomodule加载）+ 按需polyfill
+      // 文档 https://github.com/vitejs/vite-plugin-legacy
+      legacy({
+        targets: ["defaults", "ie >= 11"],
+      }),
       VitePWA({
         registerType: "autoUpdate",
         includeAssets: ["favicon.ico", "robots.txt"],
