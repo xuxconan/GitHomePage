@@ -1,9 +1,14 @@
 import { createApp } from "vue";
-import App from "./App";
+import { createPinia } from "pinia";
+
+import App from "./App.vue";
 import router from "./router";
-import store from "./store";
 
-// PWA所需服务worker
-import "./registerServiceWorker";
+// 全局基础样式
+import "./styles/index.sass";
 
-createApp(App).use(store).use(router).mount("#app");
+// PWA的service worker注册，说明 https://vite-pwa-org.netlify.sh/guide/auto-update.html
+import { registerSW } from "virtual:pwa-register";
+registerSW({ immediate: true });
+
+createApp(App).use(createPinia()).use(router).mount("#app");
