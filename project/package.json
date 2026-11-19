@@ -6,7 +6,6 @@
     "local": "vue-cli-service serve --mode=local",
 
     "build": "npm run test && vue-cli-service build --mode=prod",
-    "build:gitee": "npm run test && vue-cli-service build --mode=gitee",
     "build:github": "npm run test && vue-cli-service build --mode=github",
 
     "test": "vue-cli-service test:unit",
