@@ -5,7 +5,7 @@ import App from "./App.vue";
 import router from "./router";
 
 // 全局基础样式
-import "./styles/index.sass";
+import "./styles/index.scss";
 
 // PWA的service worker注册，说明 https://vite-pwa-org.netlify.sh/guide/auto-update.html
 import { registerSW } from "virtual:pwa-register";

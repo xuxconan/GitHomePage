@@ -11,12 +11,13 @@ const home = useHomeStore();
   </main>
 </template>
 
-<style scoped lang="sass">
-.home
-  display: flex
-  flex-direction: column
-  align-items: center
-  justify-content: center
-  min-height: 100vh
-  gap: 0.5rem
+<style scoped lang="scss">
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  gap: 0.5rem;
+}
 </style>
