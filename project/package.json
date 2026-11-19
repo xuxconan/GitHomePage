@@ -35,6 +35,8 @@
     "vue-tsc": "^3.3.14"
   },
   "overrides": {
-    "rollup": "npm:@rollup/wasm-node@^4"
+    "rollup": "npm:@rollup/wasm-node@^4",
+    "glob": "^14.0.6",
+    "minimatch": "^11.0.9"
   }
 }
