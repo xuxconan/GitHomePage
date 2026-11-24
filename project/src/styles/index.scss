@@ -1,4 +1,18 @@
 // 全局基础样式
+:root {
+  // 主题色板：深色科技风，强调色沿用PWA manifest的theme_color
+  --color-bg: #0f1419;
+  --color-bg-soft: #1a2230;
+  --color-card: rgba(255, 255, 255, 0.04);
+  --color-card-hover: rgba(77, 186, 135, 0.1);
+  --color-border: rgba(255, 255, 255, 0.12);
+  --color-border-accent: rgba(77, 186, 135, 0.55);
+  --color-text: #e6edf3;
+  --color-text-dim: #9aa7b4;
+  --color-accent: #4dba87;
+  --shadow-accent: 0 8px 24px rgba(77, 186, 135, 0.18);
+}
+
 body {
   margin: 0;
   font-family:
@@ -15,4 +29,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-bg);
+  color: var(--color-text);
 }

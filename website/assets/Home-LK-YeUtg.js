@@ -1,1 +1,0 @@
-import{a as e,c as t,i as n,n as r,o as i,r as a,s as o,t as s}from"./index-CyVAZKNN.js";var c=r(`home`,{state:()=>({title:`XUX的Github主页`,subtitle:`2026-11 重建中`})}),l={class:`home`},u=s(e({__name:`index`,setup(e){let r=c();return(e,s)=>(i(),n(`main`,l,[a(`h1`,null,t(o(r).title),1),a(`p`,null,t(o(r).subtitle),1)]))}}),[[`__scopeId`,`data-v-1c57c63d`]]);export{u as default};
