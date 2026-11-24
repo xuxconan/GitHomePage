@@ -1,6 +1,6 @@
 import {
   createRouter,
-  createWebHistory,
+  createWebHashHistory,
   isNavigationFailure,
   NavigationFailureType,
 } from "vue-router";
@@ -43,7 +43,8 @@ const routes: Array<RouteRecordRaw> = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  // hash路由：#后的路径不发送到服务器，纯静态托管（GitHub Pages无服务端回退）下任意子路由可直访
+  history: createWebHashHistory(import.meta.env.BASE_URL),
   routes,
 });
 
