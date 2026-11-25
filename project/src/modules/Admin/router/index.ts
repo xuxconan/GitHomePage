@@ -15,6 +15,8 @@ const useRoutes = async () => {
       path: "/admin",
       name: "admin",
       component: () => import("../views/index.vue"),
+      // NavBar面包屑展示名
+      meta: { label: "管理后台" },
       children,
     },
   ];

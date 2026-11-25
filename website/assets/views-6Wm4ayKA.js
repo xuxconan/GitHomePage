@@ -1,0 +1,1 @@
+import{f as e,l as t,o as n,t as r}from"./index-BrLfvDDm.js";var i={},a={class:`admin`};function o(r,i){return e(),t(`main`,a,[...i[0]||(i[0]=[n(`p`,{class:`admin__placeholder`},`管理后台 Demo（建设中）`,-1)])])}var s=r(i,[[`render`,o],[`__scopeId`,`data-v-ba62c77e`]]);export{s as default};

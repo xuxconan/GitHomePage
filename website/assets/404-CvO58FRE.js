@@ -1,1 +1,0 @@
-import{r as e}from"./index-BZbt8a4P.js";var t={};function n(e,t){return`404`}var r=e(t,[[`render`,n],[`__scopeId`,`data-v-a2d01c67`]]);export{r as default};

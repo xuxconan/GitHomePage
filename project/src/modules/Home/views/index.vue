@@ -1,10 +1,12 @@
 <script setup lang="ts">
+import ButtonLayout from "@/components/ButtonLayout/index.vue";
+
 import { useHomeStore } from "../store";
 
 const home = useHomeStore();
 
 // 封面入口按钮：后续新增演示页在这里追加即可
-const entries = [
+const routes = [
   {
     label: "管理后台",
     desc: "Admin Demo",
@@ -19,17 +21,7 @@ const entries = [
       <h1>{{ home.title }}</h1>
       <p>{{ home.subtitle }}</p>
     </header>
-    <!-- 滚动视口：高度固定为可见行数，按钮多出时上下滑动 -->
-    <nav class="home__viewport" aria-label="演示入口">
-      <ul class="entry-grid">
-        <li v-for="entry in entries" :key="entry.to">
-          <RouterLink class="entry-btn" :to="entry.to">
-            <span class="entry-btn__label">{{ entry.label }}</span>
-            <span class="entry-btn__desc">{{ entry.desc }}</span>
-          </RouterLink>
-        </li>
-      </ul>
-    </nav>
+    <ButtonLayout :routes="routes" aria-label="演示入口" />
   </main>
 </template>
 

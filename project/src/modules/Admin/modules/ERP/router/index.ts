@@ -7,6 +7,8 @@ const useRoutes = async () => {
       path: "erp",
       name: "erp",
       component: () => import("../views/index.vue"),
+      // NavBar面包屑展示名
+      meta: { label: "ERP" },
     },
   ];
   return routes;

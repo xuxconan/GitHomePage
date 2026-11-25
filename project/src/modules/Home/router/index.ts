@@ -6,6 +6,8 @@ const useRoutes = async () => {
       path: "/",
       name: "home",
       component: () => import("../views/index.vue"),
+      // NavBar面包屑展示名
+      meta: { label: "首页" },
     },
   ];
   return routes;

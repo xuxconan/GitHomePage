@@ -18,27 +18,33 @@ const routes: Array<RouteRecordRaw> = [
     path: "/401",
     name: "401",
     component: () => import("../views/401/index.vue"),
+    // NavBar面包屑展示名
+    meta: { label: "未授权" },
   },
   {
     path: "/403",
     name: "403",
     component: () => import("../views/403/index.vue"),
+    meta: { label: "禁止访问" },
   },
   {
     path: "/404",
     name: "404",
     component: () => import("../views/404/index.vue"),
+    meta: { label: "页面不存在" },
   },
   {
     path: "/500",
     name: "500",
     component: () => import("../views/500/index.vue"),
+    meta: { label: "服务器错误" },
   },
   // 兜底：未匹配任何路由的路径渲染404（vue-router按特异性匹配，通配路由永远最后命中）
   {
     path: "/:pathMatch(.*)*",
     name: "not-found",
     component: () => import("../views/404/index.vue"),
+    meta: { label: "页面不存在" },
   },
 ];
 

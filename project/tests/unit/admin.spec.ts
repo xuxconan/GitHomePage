@@ -4,13 +4,22 @@ import { createMemoryHistory, createRouter } from "vue-router";
 
 import Admin from "@/modules/Admin/views/index.vue";
 
-// 用memory history构建可跳转的路由环境
+// 用memory history构建可跳转的嵌套路由环境
 async function mountAdminAtAdmin() {
   const router = createRouter({
     history: createMemoryHistory(),
     routes: [
-      { path: "/", component: { template: "<div>home</div>" } },
-      { path: "/admin", name: "admin", component: Admin },
+      { path: "/", name: "home", component: { template: "<div>home</div>" } },
+      {
+        path: "/admin",
+        name: "admin",
+        component: Admin,
+        children: [
+          { path: "erp", name: "erp", component: { template: "<div>erp</div>" } },
+          { path: "mes", name: "mes", component: { template: "<div>mes</div>" } },
+          { path: "plm", name: "plm", component: { template: "<div>plm</div>" } },
+        ],
+      },
     ],
   });
   await router.push("/admin");
@@ -20,17 +29,19 @@ async function mountAdminAtAdmin() {
 }
 
 describe("Admin", () => {
-  it("渲染返回按钮和占位文案", async () => {
+  it("父路由渲染子模块入口按钮", async () => {
     const { wrapper } = await mountAdminAtAdmin();
-    expect(wrapper.find("button").text()).toContain("返回封面");
-    expect(wrapper.text()).toContain("管理后台 Demo");
+    expect(wrapper.text()).toContain("ERP");
+    expect(wrapper.text()).toContain("MES");
+    expect(wrapper.text()).toContain("PLM");
   });
 
-  it("无站内来历时点击返回按钮跳转首页", async () => {
-    // jsdom下history.state无back字段，应走push("/")分支
+  it("点击子模块入口跳转嵌套路径", async () => {
     const { router, wrapper } = await mountAdminAtAdmin();
-    await wrapper.find("button").trigger("click");
+    const erpLink = wrapper.findAll("a").find((a) => a.text().includes("ERP"));
+    expect(erpLink).toBeTruthy();
+    await erpLink!.trigger("click");
     await flushPromises();
-    expect(router.currentRoute.value.path).toBe("/");
+    expect(router.currentRoute.value.path).toBe("/admin/erp");
   });
 });

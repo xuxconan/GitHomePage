@@ -7,6 +7,8 @@ const useRoutes = async () => {
       path: "plm",
       name: "plm",
       component: () => import("../views/index.vue"),
+      // NavBar面包屑展示名
+      meta: { label: "PLM" },
     },
   ];
   return routes;

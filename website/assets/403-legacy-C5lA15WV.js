@@ -1,2 +1,0 @@
-(function(){System.register([`./index-legacy-CXbDSybQ.js`],function(e,t){var n,r,i;function a(e,t){return`403`}return{setters:[function(e){n=e.r}],execute:function(){r=document.createElement(`style`),r.textContent=`
-/*$vite$:1*/`,document.head.appendChild(r),i={},e(`default`,n(i,[[`render`,a],[`__scopeId`,`data-v-5138e792`]]))}}})})();

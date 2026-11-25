@@ -1,0 +1,50 @@
+// 入口按钮造型：高度行高由排布组件ButtonLayout的--btn-h决定
+.route-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  width: 100%;
+  height: var(--btn-h);
+  padding: 1rem;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  background-color: var(--color-card);
+  color: var(--color-text);
+  transition:
+    transform 0.15s ease,
+    border-color 0.15s ease,
+    background-color 0.15s ease,
+    box-shadow 0.15s ease;
+
+  &:hover,
+  &:focus-visible {
+    transform: translateY(-3px);
+    border-color: var(--color-border-accent);
+    background-color: var(--color-card-hover);
+    box-shadow: var(--shadow-accent);
+  }
+
+  &:active {
+    transform: translateY(-1px);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  &__label {
+    font-size: clamp(1.1rem, 1vw + 0.6rem, 1.6rem);
+    font-weight: 600;
+  }
+
+  &__desc {
+    color: var(--color-text-dim);
+    font-size: clamp(0.8rem, 0.4vw + 0.55rem, 1rem);
+    letter-spacing: 0.08em;
+  }
+}

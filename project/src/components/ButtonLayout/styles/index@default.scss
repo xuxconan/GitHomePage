@@ -1,0 +1,50 @@
+// 入口排布：滚动视口+分档网格。
+// 布局随视口宽高比分档（每行按钮数cols、可见行数rows），断点见同目录@min_ratio_*文件。
+// 高度预算依赖使用方页面样式提供：
+//   --chrome-h  页面标题区+内边距预留（随页面断点而变）
+//   --navbar-h  全局导航栏高度（无导航栏的页面覆盖为0）
+.layout-viewport {
+  --cols: 1;
+  --rows: 5;
+  --gap: clamp(0.75rem, 1.2vh + 0.4vw, 1.5rem);
+  // 按钮行高由视口高度反推，保证可见行数恰好铺满屏幕（dvh适配iOS地址栏，vh为降级）
+  --btn-h: max(64px, calc((100vh - var(--navbar-h) - var(--chrome-h)) / var(--rows) - var(--gap)));
+  --btn-h: max(64px, calc((100dvh - var(--navbar-h) - var(--chrome-h)) / var(--rows) - var(--gap)));
+
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1100px;
+  height: calc(var(--rows) * var(--btn-h) + (var(--rows) - 1) * var(--gap));
+  margin-block: auto;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) transparent;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: var(--color-border);
+  }
+}
+
+.button-layout {
+  // flex wrap而非grid：按钮不满一行时整行居中
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--gap);
+  // margin auto而非justify-content：按钮少时垂直居中，多到溢出时退回顶部对齐可正常滚动
+  margin: auto 0;
+  padding: 0;
+  list-style: none;
+
+  > li {
+    flex: 0 0 auto;
+    width: calc((100% - (var(--cols) - 1) * var(--gap)) / var(--cols));
+    max-width: 24rem;
+  }
+}

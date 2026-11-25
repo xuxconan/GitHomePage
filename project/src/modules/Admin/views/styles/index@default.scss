@@ -1,48 +1,20 @@
+// 管理后台页：子模块入口排布（分档在ButtonLayout组件内）。
+// --navbar-h继承全局默认（有导航栏）；--chrome-h为页面内边距预留（无标题区，无需按断点变）
 .admin {
+  --chrome-h: 96px;
+
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  min-height: 100dvh;
+  // 入口排布容器有max-width，需水平居中
+  align-items: center;
+  min-height: calc(100vh - var(--navbar-h));
+  min-height: calc(100dvh - var(--navbar-h));
   padding: 1.5rem;
   box-sizing: border-box;
-}
-
-.admin__back {
-  align-self: flex-start;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-  background-color: var(--color-card);
-  color: var(--color-text);
-  cursor: pointer;
-  transition:
-    border-color 0.15s ease,
-    background-color 0.15s ease;
-
-  &:hover,
-  &:focus-visible {
-    border-color: var(--color-border-accent);
-    background-color: var(--color-card-hover);
-  }
-
-  &:focus-visible {
-    outline: 2px solid var(--color-accent);
-    outline-offset: 2px;
-  }
 }
 
 .admin__content {
   flex: 1;
   min-height: 0;
-}
-
-.admin__placeholder {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-  color: var(--color-text-dim);
-  letter-spacing: 0.06em;
+  width: 100%;
 }

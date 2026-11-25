@@ -1,28 +1,38 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { useRoute, useRouter } from "vue-router";
+import { useRoute } from "vue-router";
+
+import ButtonLayout from "@/components/ButtonLayout/index.vue";
 
 const route = useRoute();
-const router = useRouter();
 
-// 父路由本身（/admin）显示占位；命中子模块（ERP/MES/PLM）时渲染其页面
+// 父路由本身（/admin）显示子模块入口，命中子模块（ERP/MES/PLM）时渲染其页面
 const isRoot = computed(() => route.name === "admin");
 
-// 返回封面：有站内来路时后退（保留滚动位置），直接打开本页时回首页
-function goBack() {
-  if (window.history.state?.back) {
-    router.back();
-  } else {
-    router.push("/");
-  }
-}
+// 子模块入口按钮
+const routes = [
+  {
+    label: "ERP",
+    desc: "企业资源计划",
+    to: "/admin/erp",
+  },
+  {
+    label: "MES",
+    desc: "制造执行系统",
+    to: "/admin/mes",
+  },
+  {
+    label: "PLM",
+    desc: "产品生命周期管理",
+    to: "/admin/plm",
+  },
+];
 </script>
 
 <template>
   <main class="admin">
-    <button class="admin__back" type="button" @click="goBack">← 返回封面</button>
-    <RouterView v-if="!isRoot" class="admin__content" />
-    <p v-else class="admin__placeholder">管理后台 Demo（建设中）</p>
+    <ButtonLayout v-if="isRoot" :routes="routes" aria-label="子模块入口" />
+    <RouterView v-else class="admin__content" />
   </main>
 </template>
 

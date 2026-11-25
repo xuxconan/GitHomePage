@@ -1,5 +1,7 @@
 // 全局基础样式
 :root {
+  // 全局导航栏高度：NavBar自身与页面的ButtonLayout公式共用（无导航栏的页面在自身样式中覆盖为0）
+  --navbar-h: 48px;
   // 主题色板：深色科技风，强调色沿用PWA manifest的theme_color
   --color-bg: #0f1419;
   --color-bg-soft: #1a2230;
